@@ -585,16 +585,16 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"6rimH":[function(require,module,exports) {
 var _redux = require("redux");
-let reduxState = {
+const initialState = {
     post: 0,
     name: "Tanvir Ahmed",
     age: 25
 };
 //reducer function or updater function
-function reducer(state = reduxState, action) {
+function reducer(state = initialState, action) {
     if (action.type === "post/increment") return {
         ...state,
-        post: state.post + 1
+        post: state.post + action.payload
     };
     else if (action.type === "post/decrement") return {
         ...state,
@@ -607,6 +607,16 @@ function reducer(state = reduxState, action) {
     return state;
 }
 const store = (0, _redux.createStore)(reducer);
+console.log(store);
+console.log(store.getState());
+store.dispatch({
+    type: "post/decrement"
+});
+console.log(store.getState());
+store.dispatch({
+    type: "post/increment",
+    payload: 3
+});
 console.log(store.getState());
 
 },{"redux":"anWnS"}],"anWnS":[function(require,module,exports) {
