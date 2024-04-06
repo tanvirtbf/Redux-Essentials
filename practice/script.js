@@ -1,5 +1,7 @@
 let state = {
   count: 0,
+  name : 'Tanvir Ahmed',
+  age: 25,
 };
 
 // Muted means directly modify kora 
@@ -15,7 +17,7 @@ function increment() {
   //state.count += 1;
 
   //Not Mutating state
-  state = {count : state.count + 1}
+  state = {...state, count : state.count + 1}
 }
 
 increment()
