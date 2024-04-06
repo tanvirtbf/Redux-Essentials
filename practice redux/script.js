@@ -23,7 +23,7 @@ function reducer(state=initState, action){
   }
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, __REDUX_DEVTOOLS_EXTENSION__())
 console.log(store)
 
 store.subscribe(()=>{

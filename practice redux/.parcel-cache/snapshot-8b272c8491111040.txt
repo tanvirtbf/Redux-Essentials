@@ -1,21 +1,18 @@
 44
+73D:\Redux\practice redux\node_modules\redux\src\utils\symbol-observable.ts133568594354903291 0
+42D:\Redux\practice redux\node_modules\redux133568594354792749 1
+28D:\Redux\practice redux\dist133568916043447483 1
+67D:\Redux\practice redux\node_modules\redux\src\utils\actionTypes.ts133568594354808017 0
+34D:\Redux\practice redux\index.html133568594138844489 0
 67D:\Redux\practice redux\node_modules\redux\dist\redux.legacy-esm.js133568594354703034 0
 64D:\Redux\practice redux\node_modules\redux\src\utils\isAction.ts133568594354855973 0
 36D:\Redux\practice redux\node_modules133568594354992799 1
-46D:\Redux\practice redux\dist\index.8cfc62b9.js133568692350881651 0
-69D:\Redux\practice redux\node_modules\redux\dist\redux.browser.mjs.map133568594354724879 0
-63D:\Redux\practice redux\node_modules\redux\src\utils\warning.ts133568594354913465 0
-28D:\Redux\practice redux\dist133568692350900364 1
-67D:\Redux\practice redux\node_modules\redux\src\utils\actionTypes.ts133568594354808017 0
-34D:\Redux\practice redux\index.html133568594138844489 0
+41D:\Redux\practice redux\package-lock.json133568594354981074 0
+55D:\Redux\practice redux\node_modules\.package-lock.json133568594354992799 0
 66D:\Redux\practice redux\node_modules\redux\src\types\middleware.ts133568594354881377 0
-33D:\Redux\practice redux\script.js133568692394666873 0
+33D:\Redux\practice redux\script.js133568916028630214 0
 65D:\Redux\practice redux\node_modules\redux\dist\cjs\redux.cjs.map133568594354734855 0
 36D:\Redux\practice redux\package.json133568594492161959 0
-55D:\Redux\practice redux\node_modules\.package-lock.json133568594354992799 0
-41D:\Redux\practice redux\package-lock.json133568594354981074 0
-73D:\Redux\practice redux\node_modules\redux\src\utils\symbol-observable.ts133568594354903291 0
-42D:\Redux\practice redux\node_modules\redux133568594354792749 1
 47D:\Redux\practice redux\node_modules\redux\dist133568594354881377 1
 53D:\Redux\practice redux\node_modules\redux\LICENSE.md133568594354753918 0
 55D:\Redux\practice redux\node_modules\redux\package.json133568594354714876 0
@@ -33,6 +30,9 @@
 52D:\Redux\practice redux\node_modules\redux\src\utils133568594354903291 1
 78D:\Redux\practice redux\node_modules\redux\src\utils\formatProdErrorMessage.ts133568594354855973 0
 69D:\Redux\practice redux\node_modules\redux\src\utils\isPlainObject.ts133568594354870498 0
+46D:\Redux\practice redux\dist\index.8cfc62b9.js133568916043280795 0
+69D:\Redux\practice redux\node_modules\redux\dist\redux.browser.mjs.map133568594354724879 0
+63D:\Redux\practice redux\node_modules\redux\src\utils\warning.ts133568594354913465 0
 64D:\Redux\practice redux\node_modules\redux\src\types\reducers.ts133568594354881377 0
 61D:\Redux\practice redux\node_modules\redux\src\types\store.ts133568594354903291 0
 51D:\Redux\practice redux\node_modules\redux\dist\cjs133568594354734855 1
@@ -41,5 +41,5 @@
 57D:\Redux\practice redux\node_modules\redux\dist\redux.mjs133568594354792749 0
 61D:\Redux\practice redux\node_modules\redux\dist\redux.mjs.map133568594354753918 0
 61D:\Redux\practice redux\node_modules\redux\dist\cjs\redux.cjs133568594354691964 0
-39D:\Redux\practice redux\dist\index.html133568692350821369 0
-50D:\Redux\practice redux\dist\index.8cfc62b9.js.map133568692350895322 0
+39D:\Redux\practice redux\dist\index.html133568916029432717 0
+50D:\Redux\practice redux\dist\index.8cfc62b9.js.map133568916043427531 0
