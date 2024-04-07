@@ -622,11 +622,11 @@ const store = (0, _redux.createStore)(reducer);
 const myStore = (0, _ownRedux.myCreateStore)(reducer);
 console.log(store);
 console.log(myStore);
-// myStore.subscribe(()=>{
-//   addButton.innerText = myStore.getState().count
-//   decButton.innerText = myStore.getState().count
-//   mulButton.innerText = myStore.getState().count
-// })
+myStore.subscribe(()=>{
+    addButton.innerText = myStore.getState().count;
+    decButton.innerText = myStore.getState().count;
+    mulButton.innerText = myStore.getState().count;
+});
 addButton.innerText = myStore.getState().count;
 decButton.innerText = myStore.getState().count;
 mulButton.innerText = myStore.getState().count;
@@ -1030,14 +1030,20 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "myCreateStore", ()=>myCreateStore);
 function myCreateStore(reducer) {
     let state;
+    const listeners = [];
     const store = {
         getState () {
             return state;
         },
         dispatch (action) {
             state = reducer(state, action);
+            listeners.forEach((listener)=>{
+                listener();
+            });
         },
-        subscribe () {}
+        subscribe (listener) {
+            listeners.push(listener);
+        }
     };
     store.dispatch({
         type: "@INIT"

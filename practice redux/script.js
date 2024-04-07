@@ -33,11 +33,11 @@ const myStore = myCreateStore(reducer);
 console.log(store);
 console.log(myStore);
 
-// myStore.subscribe(()=>{
-//   addButton.innerText = myStore.getState().count
-//   decButton.innerText = myStore.getState().count
-//   mulButton.innerText = myStore.getState().count
-// })
+myStore.subscribe(()=>{
+  addButton.innerText = myStore.getState().count
+  decButton.innerText = myStore.getState().count
+  mulButton.innerText = myStore.getState().count
+})
 addButton.innerText = myStore.getState().count;
 decButton.innerText = myStore.getState().count;
 mulButton.innerText = myStore.getState().count;
