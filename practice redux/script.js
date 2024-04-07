@@ -1,4 +1,6 @@
 import { createStore } from "redux";
+import { myCreateStore } from "./own-redux";
+
 
 const addButton = document.querySelector('.addBtn')
 const decButton = document.querySelector('.decBtn')
@@ -29,6 +31,9 @@ function reducer(state=initState, action){
 
 
 const store = createStore(reducer)
+
+console.log(store)
+console.log(myCreateStore)
 
 store.subscribe(()=>{
   addButton.innerText = store.getState().count
