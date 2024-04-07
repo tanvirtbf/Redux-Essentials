@@ -614,7 +614,7 @@ function reducer(state = initState, action) {
             return state;
     }
 }
-const store = (0, _redux.createStore)(reducer, __REDUX_DEVTOOLS_EXTENSION__());
+const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 console.log(store);
 store.subscribe(()=>{
     console.log(store.getState());
