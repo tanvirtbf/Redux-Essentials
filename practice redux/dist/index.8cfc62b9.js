@@ -619,8 +619,9 @@ function reducer(state = initState, action) {
     }
 }
 const store = (0, _redux.createStore)(reducer);
+const myStore = (0, _ownRedux.myCreateStore)();
 console.log(store);
-console.log((0, _ownRedux.myCreateStore));
+console.log(myStore);
 store.subscribe(()=>{
     addButton.innerText = store.getState().count;
     decButton.innerText = store.getState().count;
@@ -1026,7 +1027,14 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "myCreateStore", ()=>myCreateStore);
 function myCreateStore() {
-    const store = {};
+    let state;
+    const store = {
+        getState () {
+            return state;
+        },
+        dispatch () {},
+        subscribe () {}
+    };
     return store;
 }
 

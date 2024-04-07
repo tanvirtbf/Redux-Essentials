@@ -1,4 +1,11 @@
 export function myCreateStore() {
-  const store = {};
+  let state 
+  const store = {
+    getState() {
+      return state
+    },
+    dispatch() {},
+    subscribe() {},
+  };
   return store;
 }

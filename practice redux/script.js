@@ -31,9 +31,10 @@ function reducer(state=initState, action){
 
 
 const store = createStore(reducer)
-
+const myStore = myCreateStore()
 console.log(store)
-console.log(myCreateStore)
+console.log(myStore)
+
 
 store.subscribe(()=>{
   addButton.innerText = store.getState().count
