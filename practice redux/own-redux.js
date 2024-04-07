@@ -9,5 +9,7 @@ export function myCreateStore(reducer) {
     },
     subscribe() {},
   };
+
+  store.dispatch({type: '@INIT'})
   return store;
 }

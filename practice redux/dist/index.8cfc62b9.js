@@ -622,32 +622,35 @@ const store = (0, _redux.createStore)(reducer);
 const myStore = (0, _ownRedux.myCreateStore)(reducer);
 console.log(store);
 console.log(myStore);
-store.subscribe(()=>{
-    addButton.innerText = store.getState().count;
-    decButton.innerText = store.getState().count;
-    mulButton.innerText = store.getState().count;
-});
-addButton.innerText = store.getState().count;
-decButton.innerText = store.getState().count;
-mulButton.innerText = store.getState().count;
+// myStore.subscribe(()=>{
+//   addButton.innerText = myStore.getState().count
+//   decButton.innerText = myStore.getState().count
+//   mulButton.innerText = myStore.getState().count
+// })
+addButton.innerText = myStore.getState().count;
+decButton.innerText = myStore.getState().count;
+mulButton.innerText = myStore.getState().count;
 addButton.addEventListener("click", ()=>{
-    store.dispatch({
+    myStore.dispatch({
         type: INCREMENT,
         payload: 5
     });
+    console.log(myStore.getState());
 });
 decButton.addEventListener("click", ()=>{
-    store.dispatch({
+    myStore.dispatch({
         type: DECREMENT,
         payload: 3
     });
+    console.log(myStore.getState());
 });
 mulButton.addEventListener("click", ()=>{
-    store.dispatch({
+    myStore.dispatch({
         type: MULTIPLE,
         payload: 2
     });
-}) // import { createStore } from "redux";
+    console.log(myStore.getState());
+}); // import { createStore } from "redux";
  // const button = document.querySelector('.btn')
  // const initState = {
  //   count : 0,
@@ -659,13 +662,13 @@ mulButton.addEventListener("click", ()=>{
  // const MULTIPLE = 'multiple'
  // function reducer(state=initState, action){
  //   switch(action.type){
- //     case INCREMENT : 
+ //     case INCREMENT :
  //       return {...state, count: state.count + action.payload}
- //     case DECREMENT : 
+ //     case DECREMENT :
  //       return {...state, count: state.count - action.payload}
- //     case MULTIPLE : 
+ //     case MULTIPLE :
  //       return {...state, count: state.count * action.payload}
- //     default : 
+ //     default :
  //       return state
  //   }
  // }
@@ -682,7 +685,6 @@ mulButton.addEventListener("click", ()=>{
  // store.dispatch({type: INCREMENT, payload: 3})
  // store.dispatch({type: DECREMENT, payload: 2})
  // store.dispatch({type: MULTIPLE, payload: 5})
-;
 
 },{"redux":"anWnS","./own-redux":"1exqs"}],"anWnS":[function(require,module,exports) {
 // src/utils/formatProdErrorMessage.ts
@@ -1037,6 +1039,9 @@ function myCreateStore(reducer) {
         },
         subscribe () {}
     };
+    store.dispatch({
+        type: "@INIT"
+    });
     return store;
 }
 
