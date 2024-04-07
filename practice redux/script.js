@@ -33,10 +33,17 @@ const myStore = myCreateStore(reducer);
 console.log(store);
 console.log(myStore);
 
-myStore.subscribe(()=>{
+const unSubscribe1 = myStore.subscribe(()=>{
   addButton.innerText = myStore.getState().count
   decButton.innerText = myStore.getState().count
   mulButton.innerText = myStore.getState().count
+})
+
+const unSubscribe2 = myStore.subscribe(()=>{
+  console.log('hii')
+})
+const unSubscribe3 = myStore.subscribe(()=>{
+  console.log('hello')
 })
 addButton.innerText = myStore.getState().count;
 decButton.innerText = myStore.getState().count;
@@ -44,6 +51,7 @@ mulButton.innerText = myStore.getState().count;
 
 addButton.addEventListener("click", () => {
   myStore.dispatch({ type: INCREMENT, payload: 5 });
+  unSubscribe3()
   console.log(myStore.getState());
 });
 decButton.addEventListener("click", () => {

@@ -622,10 +622,16 @@ const store = (0, _redux.createStore)(reducer);
 const myStore = (0, _ownRedux.myCreateStore)(reducer);
 console.log(store);
 console.log(myStore);
-myStore.subscribe(()=>{
+const unSubscribe1 = myStore.subscribe(()=>{
     addButton.innerText = myStore.getState().count;
     decButton.innerText = myStore.getState().count;
     mulButton.innerText = myStore.getState().count;
+});
+const unSubscribe2 = myStore.subscribe(()=>{
+    console.log("hii");
+});
+const unSubscribe3 = myStore.subscribe(()=>{
+    console.log("hello");
 });
 addButton.innerText = myStore.getState().count;
 decButton.innerText = myStore.getState().count;
@@ -635,6 +641,7 @@ addButton.addEventListener("click", ()=>{
         type: INCREMENT,
         payload: 5
     });
+    unSubscribe3();
     console.log(myStore.getState());
 });
 decButton.addEventListener("click", ()=>{
@@ -1043,6 +1050,10 @@ function myCreateStore(reducer) {
         },
         subscribe (listener) {
             listeners.push(listener);
+            return function() {
+                const listenerIndex = listeners.findIndex((findListener)=>findListener === listener);
+                listeners.splice(listenerIndex, 1);
+            };
         }
     };
     store.dispatch({

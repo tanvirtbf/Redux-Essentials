@@ -13,6 +13,10 @@ export function myCreateStore(reducer) {
     },
     subscribe(listener) {
       listeners.push(listener)
+      return function(){
+        const listenerIndex = listeners.findIndex((findListener)=> findListener===listener)
+        listeners.splice(listenerIndex,1)
+      }
     },
   };
 
