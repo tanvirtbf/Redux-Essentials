@@ -40,7 +40,7 @@ const unSubscribe1 = myStore.subscribe(()=>{
 })
 
 const unSubscribe2 = myStore.subscribe(()=>{
-  console.log('hii')
+  console.log('hiii')
 })
 const unSubscribe3 = myStore.subscribe(()=>{
   console.log('hello')
