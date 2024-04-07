@@ -619,7 +619,7 @@ function reducer(state = initState, action) {
     }
 }
 const store = (0, _redux.createStore)(reducer);
-const myStore = (0, _ownRedux.myCreateStore)();
+const myStore = (0, _ownRedux.myCreateStore)(reducer);
 console.log(store);
 console.log(myStore);
 store.subscribe(()=>{
@@ -1026,13 +1026,15 @@ exports.export = function(dest, destName, get) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "myCreateStore", ()=>myCreateStore);
-function myCreateStore() {
+function myCreateStore(reducer) {
     let state;
     const store = {
         getState () {
             return state;
         },
-        dispatch () {},
+        dispatch (action) {
+            state = reducer(state, action);
+        },
         subscribe () {}
     };
     return store;

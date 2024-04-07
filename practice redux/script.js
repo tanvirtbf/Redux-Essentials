@@ -31,7 +31,7 @@ function reducer(state=initState, action){
 
 
 const store = createStore(reducer)
-const myStore = myCreateStore()
+const myStore = myCreateStore(reducer)
 console.log(store)
 console.log(myStore)
 
