@@ -11,8 +11,23 @@ export default function cartReducer(state=[],action){
       return [...state, action.payload]
     case CART_REMOVE_ITEM: 
       return state.filter((cartItem)=> cartItem.productId !== action.payload.productId)
+    case CART_ITEM_INCREASE_QUANTITY: 
+      return  state.map((item) =>{
+        if(item.productId === action.payload.productId){
+          return {...item, quantity: item.quantity + action.payload.quantity}
+        }
+        return item
+      })
+    case CART_ITEM_DECREASE_QUANTITY: 
+      return state.map((item)=> {
+        if(item.productId === action.payload.productId){
+          return {...item, quantity: item.quantity - action.payload.quantity}
+        }
+        return item
+      })
+    default: 
+      return state;
   }
-  return state;
 }
 
 

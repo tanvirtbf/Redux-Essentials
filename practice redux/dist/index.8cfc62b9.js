@@ -632,6 +632,20 @@ store.dispatch({
     payload: {
         productId: 3
     }
+});
+store.dispatch({
+    type: (0, _cartReducer.CART_ITEM_INCREASE_QUANTITY),
+    payload: {
+        productId: 2,
+        quantity: 1
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.CART_ITEM_DECREASE_QUANTITY),
+    payload: {
+        productId: 1,
+        quantity: 2
+    }
 }) // import { combineReducers, createStore } from "redux";
  // import cartReducer, {
  //   CART_ADD_ITEM,
@@ -1060,8 +1074,25 @@ function cartReducer(state = [], action) {
             ];
         case CART_REMOVE_ITEM:
             return state.filter((cartItem)=>cartItem.productId !== action.payload.productId);
+        case CART_ITEM_INCREASE_QUANTITY:
+            return state.map((item)=>{
+                if (item.productId === action.payload.productId) return {
+                    ...item,
+                    quantity: item.quantity + action.payload.quantity
+                };
+                return item;
+            });
+        case CART_ITEM_DECREASE_QUANTITY:
+            return state.map((item)=>{
+                if (item.productId === action.payload.productId) return {
+                    ...item,
+                    quantity: item.quantity - action.payload.quantity
+                };
+                return item;
+            });
+        default:
+            return state;
     }
-    return state;
 } // export const CART_ADD_ITEM = "cart/addItem";
  // export const CART_REMOVE_ITEM = "cart/removeItem";
  // export const CART_ITEM_INCREASE_QUANTITY = "cart/increaseItemQuantity";
