@@ -585,23 +585,64 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"6rimH":[function(require,module,exports) {
 var _redux = require("redux");
-var _ownRedux = require("./own-redux");
 var _productsList = require("./productsList");
-const addButton = document.querySelector(".addBtn");
-const decButton = document.querySelector(".decBtn");
-const mulButton = document.querySelector(".mulBtn");
 const initState = {
     products: (0, _productsList.productsList),
     cartItems: [],
     wishList: []
 };
-const INCREMENT = "increment";
-const DECREMENT = "decrement";
-const MULTIPLE = "multiple";
-function reducer(state = initState, action) {}
+const CART_ADD_ITEM = "cart/addItem";
+const CART_REMOVE_ITEM = "cart/removeItem";
+function reducer(state = initState, action) {
+    switch(action.type){
+        case CART_ADD_ITEM:
+            return {
+                ...state,
+                cartItems: [
+                    ...state.cartItems,
+                    action.payload
+                ]
+            };
+        case CART_REMOVE_ITEM:
+            return {
+                ...state,
+                cartItems: state.cartItems.filter((cartItem)=>cartItem.productId !== action.payload.productId)
+            };
+        default:
+            return state;
+    }
+}
 const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
+console.log(store);
+store.dispatch({
+    type: CART_ADD_ITEM,
+    payload: {
+        productId: 1,
+        quantity: 1
+    }
+});
+store.dispatch({
+    type: CART_ADD_ITEM,
+    payload: {
+        productId: 12,
+        quantity: 1
+    }
+});
+store.dispatch({
+    type: CART_ADD_ITEM,
+    payload: {
+        productId: 15,
+        quantity: 1
+    }
+});
+store.dispatch({
+    type: CART_REMOVE_ITEM,
+    payload: {
+        productId: 12
+    }
+});
 
-},{"redux":"anWnS","./own-redux":"1exqs","./productsList":"e6lBk"}],"anWnS":[function(require,module,exports) {
+},{"redux":"anWnS","./productsList":"e6lBk"}],"anWnS":[function(require,module,exports) {
 // src/utils/formatProdErrorMessage.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -939,38 +980,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"1exqs":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "myCreateStore", ()=>myCreateStore);
-function myCreateStore(reducer) {
-    let state;
-    const listeners = [];
-    const store = {
-        getState () {
-            return state;
-        },
-        dispatch (action) {
-            state = reducer(state, action);
-            listeners.forEach((listener)=>{
-                listener();
-            });
-        },
-        subscribe (listener) {
-            listeners.push(listener);
-            return function() {
-                const listenerIndex = listeners.findIndex((findListener)=>findListener === listener);
-                listeners.splice(listenerIndex, 1);
-            };
-        }
-    };
-    store.dispatch({
-        type: "@INIT"
-    });
-    return store;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cskQC"}],"e6lBk":[function(require,module,exports) {
+},{}],"e6lBk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "productsList", ()=>productsList);
