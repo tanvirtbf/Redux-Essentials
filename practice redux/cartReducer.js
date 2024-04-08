@@ -9,6 +9,8 @@ export default function cartReducer(state=[],action){
   switch(action.type){
     case CART_ADD_ITEM: 
       return [...state, action.payload]
+    case CART_REMOVE_ITEM: 
+      return state.filter((cartItem)=> cartItem.productId !== action.payload.productId)
   }
   return state;
 }

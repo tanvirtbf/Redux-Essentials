@@ -626,6 +626,12 @@ store.dispatch({
         productId: 4,
         quantity: 3
     }
+});
+store.dispatch({
+    type: (0, _cartReducer.CART_REMOVE_ITEM),
+    payload: {
+        productId: 3
+    }
 }) // import { combineReducers, createStore } from "redux";
  // import cartReducer, {
  //   CART_ADD_ITEM,
@@ -1052,6 +1058,8 @@ function cartReducer(state = [], action) {
                 ...state,
                 action.payload
             ];
+        case CART_REMOVE_ITEM:
+            return state.filter((cartItem)=>cartItem.productId !== action.payload.productId);
     }
     return state;
 } // export const CART_ADD_ITEM = "cart/addItem";

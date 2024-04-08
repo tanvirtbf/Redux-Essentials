@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from "redux";
 import productsReducer from "./productsReducer";
-import cartReducer, { CART_ADD_ITEM } from "./cartReducer";
+import cartReducer, { CART_ADD_ITEM, CART_REMOVE_ITEM } from "./cartReducer";
 import wishListReducer from "./wishListReducer";
 
 const reducer = combineReducers({
@@ -16,6 +16,9 @@ store.dispatch({type: CART_ADD_ITEM, payload: {productId: 1, quantity: 2}})
 store.dispatch({type: CART_ADD_ITEM, payload: {productId: 2, quantity: 6}})
 store.dispatch({type: CART_ADD_ITEM, payload: {productId: 3, quantity: 4}})
 store.dispatch({type: CART_ADD_ITEM, payload: {productId: 4, quantity: 3}})
+
+store.dispatch({type: CART_REMOVE_ITEM, payload: {productId: 3}})
+
 
 
 
