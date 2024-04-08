@@ -43,5 +43,5 @@
 57D:\Redux\practice redux\node_modules\redux\dist\redux.mjs133568594354792749 0
 61D:\Redux\practice redux\node_modules\redux\dist\redux.mjs.map133568594354753918 0
 61D:\Redux\practice redux\node_modules\redux\dist\cjs\redux.cjs133568594354691964 0
-39D:\Redux\practice redux\dist\index.html133570242664730640 0
 50D:\Redux\practice redux\dist\index.8cfc62b9.js.map133570246344985102 0
+39D:\Redux\practice redux\dist\index.html133570242664730640 0
