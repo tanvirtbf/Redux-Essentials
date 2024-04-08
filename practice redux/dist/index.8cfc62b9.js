@@ -597,8 +597,36 @@ const reducer = (0, _redux.combineReducers)({
     cartItems: (0, _cartReducerDefault.default),
     wishLists: (0, _wishListReducerDefault.default)
 });
-const store = (0, _redux.createStore)(reducer);
-console.log(store) // import { combineReducers, createStore } from "redux";
+const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
+console.log(store);
+store.dispatch({
+    type: (0, _cartReducer.CART_ADD_ITEM),
+    payload: {
+        productId: 1,
+        quantity: 2
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.CART_ADD_ITEM),
+    payload: {
+        productId: 2,
+        quantity: 6
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.CART_ADD_ITEM),
+    payload: {
+        productId: 3,
+        quantity: 4
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.CART_ADD_ITEM),
+    payload: {
+        productId: 4,
+        quantity: 3
+    }
+}) // import { combineReducers, createStore } from "redux";
  // import cartReducer, {
  //   CART_ADD_ITEM,
  //   CART_ITEM_DECREASE_QUANTITY,
@@ -1008,8 +1036,23 @@ function productsReducer(state = [], action) {
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"cskQC"}],"96Hwp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CART_ADD_ITEM", ()=>CART_ADD_ITEM);
+parcelHelpers.export(exports, "CART_REMOVE_ITEM", ()=>CART_REMOVE_ITEM);
+parcelHelpers.export(exports, "CART_ITEM_INCREASE_QUANTITY", ()=>CART_ITEM_INCREASE_QUANTITY);
+parcelHelpers.export(exports, "CART_ITEM_DECREASE_QUANTITY", ()=>CART_ITEM_DECREASE_QUANTITY);
 parcelHelpers.export(exports, "default", ()=>cartReducer);
+const CART_ADD_ITEM = "cart/addItem";
+const CART_REMOVE_ITEM = "cart/removeItem";
+const CART_ITEM_INCREASE_QUANTITY = "cart/increaseItem";
+const CART_ITEM_DECREASE_QUANTITY = "cart/decreaseItem";
 function cartReducer(state = [], action) {
+    switch(action.type){
+        case CART_ADD_ITEM:
+            return [
+                ...state,
+                action.payload
+            ];
+    }
     return state;
 } // export const CART_ADD_ITEM = "cart/addItem";
  // export const CART_REMOVE_ITEM = "cart/removeItem";
