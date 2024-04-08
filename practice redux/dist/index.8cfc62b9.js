@@ -632,7 +632,7 @@ function reducer(state = initState, action) {
                         quantity: cartItem.quantity - 1
                     };
                     return cartItem;
-                })
+                }).filter((cartItem)=>cartItem.quantity > 0)
             };
         case WISHLIST_ADD_ITEM:
             return {
@@ -691,6 +691,12 @@ store.dispatch({
     type: CART_ITEM_INCREASE_QUANTITY,
     payload: {
         productId: 12
+    }
+});
+store.dispatch({
+    type: CART_ITEM_DECREASE_QUANTITY,
+    payload: {
+        productId: 15
     }
 });
 store.dispatch({
