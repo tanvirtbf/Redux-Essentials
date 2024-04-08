@@ -646,6 +646,46 @@ store.dispatch({
         productId: 1,
         quantity: 2
     }
+});
+store.dispatch({
+    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
+    payload: {
+        productId: 1,
+        quantity: 2
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
+    payload: {
+        productId: 2,
+        quantity: 3
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
+    payload: {
+        productId: 3,
+        quantity: 5
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
+    payload: {
+        productId: 4,
+        quantity: 6
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.WISHLIST_REMOVE_ITEM),
+    payload: {
+        productId: 1
+    }
+});
+store.dispatch({
+    type: (0, _wishListReducer.WISHLIST_REMOVE_ITEM),
+    payload: {
+        productId: 2
+    }
 }) // import { combineReducers, createStore } from "redux";
  // import cartReducer, {
  //   CART_ADD_ITEM,
@@ -1129,9 +1169,23 @@ function cartReducer(state = [], action) {
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"cskQC"}],"eKMDw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "WISHLIST_ADD_ITEM", ()=>WISHLIST_ADD_ITEM);
+parcelHelpers.export(exports, "WISHLIST_REMOVE_ITEM", ()=>WISHLIST_REMOVE_ITEM);
 parcelHelpers.export(exports, "default", ()=>wishListReducer);
+const WISHLIST_ADD_ITEM = "wishlist/addItem";
+const WISHLIST_REMOVE_ITEM = "wishlist/removeItem";
 function wishListReducer(state = [], action) {
-    return state;
+    switch(action.type){
+        case WISHLIST_ADD_ITEM:
+            return [
+                ...state,
+                action.payload
+            ];
+        case WISHLIST_REMOVE_ITEM:
+            return state.filter((item)=>item.productId !== action.payload.productId);
+        default:
+            return state;
+    }
 } // export const WISHLIST_ADD_ITEM = "wishList/addItem";
  // export const WISHLIST_REMOVE_ITEM = "wishList/removeItem";
  // export default function wishListReducer(state=[],action){
