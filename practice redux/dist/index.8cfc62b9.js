@@ -642,6 +642,11 @@ function reducer(state = initState, action) {
                     action.payload
                 ]
             };
+        case WISHLIST_REMOVE_ITEM:
+            return {
+                ...state,
+                wishLists: state.wishLists.filter((item)=>item.productId !== action.payload.productId)
+            };
         default:
             return state;
     }
@@ -722,6 +727,18 @@ store.dispatch({
     type: WISHLIST_ADD_ITEM,
     payload: {
         productId: 4
+    }
+});
+store.dispatch({
+    type: WISHLIST_REMOVE_ITEM,
+    payload: {
+        productId: 2
+    }
+});
+store.dispatch({
+    type: WISHLIST_REMOVE_ITEM,
+    payload: {
+        productId: 3
     }
 });
 console.log(store.getState());
