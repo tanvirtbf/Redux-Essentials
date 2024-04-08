@@ -1,5 +1,5 @@
 import { productsList } from "./productsList";
 
-function productsReducer(state=productsList){
+export default function productsReducer(state=productsList){
   return state;
 }
