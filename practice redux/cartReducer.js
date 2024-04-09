@@ -11,6 +11,24 @@ export function decreaseCartItemQuantity(productId, quantity){
     payload: {productId: productId , quantity: quantity}
   }
 }
+export function increaseCartItemQuantity(productId,quantity){
+  return {
+    type: CART_ITEM_INCREASE_QUANTITY,
+    payload: {productId,quantity}
+  }
+}
+export function addItemQuantity(productId,quantity){
+  return {
+    type: CART_ADD_ITEM,
+    payload: {productId: productId, quantity: quantity}
+  }
+}
+export function removeItemQuantity(productId){
+  return {
+    type: CART_REMOVE_ITEM,
+    payload: {productId}
+  }
+}
 
 
 //Reducer
@@ -33,7 +51,7 @@ export default function cartReducer(state=[],action){
           return {...item, quantity: item.quantity - action.payload.quantity}
         }
         return item
-      })
+      }).filter((cartItem) => cartItem.quantity > 0);
     default: 
       return state;
   }
