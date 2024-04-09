@@ -606,46 +606,12 @@ store.dispatch((0, _cartReducer.addItemQuantity)(4, 3));
 store.dispatch((0, _cartReducer.removeItemQuantity)(3));
 store.dispatch((0, _cartReducer.increaseCartItemQuantity)(1, 2));
 store.dispatch((0, _cartReducer.decreaseCartItemQuantity)(1, 1));
-store.dispatch({
-    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
-    payload: {
-        productId: 1,
-        quantity: 2
-    }
-});
-store.dispatch({
-    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
-    payload: {
-        productId: 2,
-        quantity: 3
-    }
-});
-store.dispatch({
-    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
-    payload: {
-        productId: 3,
-        quantity: 5
-    }
-});
-store.dispatch({
-    type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
-    payload: {
-        productId: 4,
-        quantity: 6
-    }
-});
-store.dispatch({
-    type: (0, _wishListReducer.WISHLIST_REMOVE_ITEM),
-    payload: {
-        productId: 1
-    }
-});
-store.dispatch({
-    type: (0, _wishListReducer.WISHLIST_REMOVE_ITEM),
-    payload: {
-        productId: 2
-    }
-}); // import { combineReducers, createStore } from "redux";
+store.dispatch((0, _wishListReducer.wishListAddItem)(1, 2));
+store.dispatch((0, _wishListReducer.wishListAddItem)(2, 3));
+store.dispatch((0, _wishListReducer.wishListAddItem)(3, 5));
+store.dispatch((0, _wishListReducer.wishListAddItem)(4, 6));
+store.dispatch((0, _wishListReducer.wishListRemoveItem)(1));
+store.dispatch((0, _wishListReducer.wishListRemoveItem)(2)); // import { combineReducers, createStore } from "redux";
  // import cartReducer, {
  //   CART_ADD_ITEM,
  //   CART_ITEM_DECREASE_QUANTITY,
@@ -1055,10 +1021,6 @@ function productsReducer(state = [], action) {
 //Action Types
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "CART_ADD_ITEM", ()=>CART_ADD_ITEM);
-parcelHelpers.export(exports, "CART_REMOVE_ITEM", ()=>CART_REMOVE_ITEM);
-parcelHelpers.export(exports, "CART_ITEM_INCREASE_QUANTITY", ()=>CART_ITEM_INCREASE_QUANTITY);
-parcelHelpers.export(exports, "CART_ITEM_DECREASE_QUANTITY", ()=>CART_ITEM_DECREASE_QUANTITY);
 //Action Creators
 parcelHelpers.export(exports, "decreaseCartItemQuantity", ()=>decreaseCartItemQuantity);
 parcelHelpers.export(exports, "increaseCartItemQuantity", ()=>increaseCartItemQuantity);
@@ -1169,11 +1131,29 @@ function cartReducer(state = [], action) {
 //Action Types
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "WISHLIST_ADD_ITEM", ()=>WISHLIST_ADD_ITEM);
-parcelHelpers.export(exports, "WISHLIST_REMOVE_ITEM", ()=>WISHLIST_REMOVE_ITEM);
+//Action Creators
+parcelHelpers.export(exports, "wishListAddItem", ()=>wishListAddItem);
+parcelHelpers.export(exports, "wishListRemoveItem", ()=>wishListRemoveItem);
 parcelHelpers.export(exports, "default", ()=>wishListReducer);
 const WISHLIST_ADD_ITEM = "wishlist/addItem";
 const WISHLIST_REMOVE_ITEM = "wishlist/removeItem";
+function wishListAddItem(productId, quantity) {
+    return {
+        type: WISHLIST_ADD_ITEM,
+        payload: {
+            productId: productId,
+            quantity: quantity
+        }
+    };
+}
+function wishListRemoveItem(productId) {
+    return {
+        type: WISHLIST_REMOVE_ITEM,
+        payload: {
+            productId
+        }
+    };
+}
 function wishListReducer(state = [], action) {
     switch(action.type){
         case WISHLIST_ADD_ITEM:
@@ -1191,7 +1171,7 @@ function wishListReducer(state = [], action) {
  // export default function wishListReducer(state=[],action){
  //   switch (action.type) {
  //     case WISHLIST_ADD_ITEM:
- //       return [...state, action.payload] 
+ //       return [...state, action.payload]
  //     case WISHLIST_REMOVE_ITEM:
  //       return state.filter(
  //           (item) => item.productId !== action.payload.productId
