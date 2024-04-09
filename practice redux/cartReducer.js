@@ -1,8 +1,19 @@
+//Action Types
 export const CART_ADD_ITEM = 'cart/addItem'
 export const CART_REMOVE_ITEM = 'cart/removeItem'
 export const CART_ITEM_INCREASE_QUANTITY = 'cart/increaseItem'
 export const CART_ITEM_DECREASE_QUANTITY = 'cart/decreaseItem'
 
+//Action Creators
+export function decreaseCartItemQuantity(productId, quantity){
+  return {
+    type: CART_ITEM_DECREASE_QUANTITY,
+    payload: {productId: productId , quantity: quantity}
+  }
+}
+
+
+//Reducer
 export default function cartReducer(state=[],action){
   switch(action.type){
     case CART_ADD_ITEM: 

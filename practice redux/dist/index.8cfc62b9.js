@@ -586,10 +586,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"6rimH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _redux = require("redux");
-var _productsReducer = require("./productsReducer");
-var _productsReducerDefault = parcelHelpers.interopDefault(_productsReducer);
 var _cartReducer = require("./cartReducer");
 var _cartReducerDefault = parcelHelpers.interopDefault(_cartReducer);
+var _productsReducer = require("./productsReducer");
+var _productsReducerDefault = parcelHelpers.interopDefault(_productsReducer);
 var _wishListReducer = require("./wishListReducer");
 var _wishListReducerDefault = parcelHelpers.interopDefault(_wishListReducer);
 const reducer = (0, _redux.combineReducers)({
@@ -640,13 +640,7 @@ store.dispatch({
         quantity: 1
     }
 });
-store.dispatch({
-    type: (0, _cartReducer.CART_ITEM_DECREASE_QUANTITY),
-    payload: {
-        productId: 1,
-        quantity: 2
-    }
-});
+store.dispatch((0, _cartReducer.decreaseCartItemQuantity)(1, 1));
 store.dispatch({
     type: (0, _wishListReducer.WISHLIST_ADD_ITEM),
     payload: {
@@ -686,7 +680,7 @@ store.dispatch({
     payload: {
         productId: 2
     }
-}) // import { combineReducers, createStore } from "redux";
+}); // import { combineReducers, createStore } from "redux";
  // import cartReducer, {
  //   CART_ADD_ITEM,
  //   CART_ITEM_DECREASE_QUANTITY,
@@ -742,7 +736,6 @@ store.dispatch({
  // store.dispatch({ type: WISHLIST_REMOVE_ITEM, payload: { productId: 2 } });
  // store.dispatch({ type: WISHLIST_REMOVE_ITEM, payload: { productId: 3 } });
  // console.log(store.getState());
-;
 
 },{"redux":"anWnS","./productsReducer":"9nz3D","@parcel/transformer-js/src/esmodule-helpers.js":"cskQC","./cartReducer":"96Hwp","./wishListReducer":"eKMDw"}],"anWnS":[function(require,module,exports) {
 // src/utils/formatProdErrorMessage.ts
@@ -1094,17 +1087,29 @@ function productsReducer(state = [], action) {
  // }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"cskQC"}],"96Hwp":[function(require,module,exports) {
+//Action Types
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CART_ADD_ITEM", ()=>CART_ADD_ITEM);
 parcelHelpers.export(exports, "CART_REMOVE_ITEM", ()=>CART_REMOVE_ITEM);
 parcelHelpers.export(exports, "CART_ITEM_INCREASE_QUANTITY", ()=>CART_ITEM_INCREASE_QUANTITY);
 parcelHelpers.export(exports, "CART_ITEM_DECREASE_QUANTITY", ()=>CART_ITEM_DECREASE_QUANTITY);
+//Action Creators
+parcelHelpers.export(exports, "decreaseCartItemQuantity", ()=>decreaseCartItemQuantity);
 parcelHelpers.export(exports, "default", ()=>cartReducer);
 const CART_ADD_ITEM = "cart/addItem";
 const CART_REMOVE_ITEM = "cart/removeItem";
 const CART_ITEM_INCREASE_QUANTITY = "cart/increaseItem";
 const CART_ITEM_DECREASE_QUANTITY = "cart/decreaseItem";
+function decreaseCartItemQuantity(productId, quantity) {
+    return {
+        type: CART_ITEM_DECREASE_QUANTITY,
+        payload: {
+            productId: productId,
+            quantity: quantity
+        }
+    };
+}
 function cartReducer(state = [], action) {
     switch(action.type){
         case CART_ADD_ITEM:
