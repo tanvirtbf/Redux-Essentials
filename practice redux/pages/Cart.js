@@ -1,5 +1,6 @@
 import React from "react";
 import CartItem from "../components/CartItem";
+import { useSelector } from "react-redux";
 
 export default function Cart() {
   const cartItems = [
@@ -28,6 +29,9 @@ export default function Cart() {
       price: 15.99,
     },
   ];
+
+  const cart = useSelector((state) => state.cartItems)
+  console.log(cart)
 
   return (
     <div className="cart-container">
