@@ -8,8 +8,8 @@
 34D:\Redux\practice redux\.gitignore133570247822612306 0
 67D:\Redux\practice redux\node_modules\redux\src\utils\actionTypes.ts133568594354808017 0
 34D:\Redux\practice redux\index.html133570222308410719 0
-38D:\Redux\practice redux\cartReducer.js133570417524532092 0
-28D:\Redux\practice redux\dist133570596041639030 1
+38D:\Redux\practice redux\cartReducer.js133571168179668681 0
+28D:\Redux\practice redux\dist133571167917672280 1
 67D:\Redux\practice redux\node_modules\redux\dist\redux.legacy-esm.js133568594354703034 0
 64D:\Redux\practice redux\node_modules\redux\src\utils\isAction.ts133568594354855973 0
 36D:\Redux\practice redux\node_modules133568594354992799 1
@@ -37,7 +37,7 @@
 52D:\Redux\practice redux\node_modules\redux\src\utils133568594354903291 1
 78D:\Redux\practice redux\node_modules\redux\src\utils\formatProdErrorMessage.ts133568594354855973 0
 69D:\Redux\practice redux\node_modules\redux\src\utils\isPlainObject.ts133568594354870498 0
-46D:\Redux\practice redux\dist\index.8cfc62b9.js133570596041383009 0
+46D:\Redux\practice redux\dist\index.8cfc62b9.js133571167917166848 0
 69D:\Redux\practice redux\node_modules\redux\dist\redux.browser.mjs.map133568594354724879 0
 63D:\Redux\practice redux\node_modules\redux\src\utils\warning.ts133568594354913465 0
 64D:\Redux\practice redux\node_modules\redux\src\types\reducers.ts133568594354881377 0
@@ -47,5 +47,5 @@
 58D:\Redux\practice redux\node_modules\redux\dist\redux.d.ts133568594354892555 0
 57D:\Redux\practice redux\node_modules\redux\dist\redux.mjs133568594354792749 0
 61D:\Redux\practice redux\node_modules\redux\dist\cjs\redux.cjs133568594354691964 0
-39D:\Redux\practice redux\dist\index.html133570592618786200 0
-50D:\Redux\practice redux\dist\index.8cfc62b9.js.map133570596041588852 0
+50D:\Redux\practice redux\dist\index.8cfc62b9.js.map133571167917264119 0
+39D:\Redux\practice redux\dist\index.html133571167917672280 0
