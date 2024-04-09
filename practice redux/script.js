@@ -13,6 +13,8 @@ import productsReducer from "./productsReducer";
 import wishListReducer, {
   WISHLIST_ADD_ITEM,
   WISHLIST_REMOVE_ITEM,
+  wishListAddItem,
+  wishListRemoveItem,
 } from "./wishListReducer";
 
 const reducer = combineReducers({
@@ -35,27 +37,14 @@ store.dispatch(increaseCartItemQuantity(1,2))
 
 store.dispatch(decreaseCartItemQuantity(1,1));
 
-store.dispatch({
-  type: WISHLIST_ADD_ITEM,
-  payload: { productId: 1, quantity: 2 },
-});
+store.dispatch(wishListAddItem(1,2))
+store.dispatch(wishListAddItem(2,3))
+store.dispatch(wishListAddItem(3,5))
+store.dispatch(wishListAddItem(4,6))
 
+store.dispatch(wishListRemoveItem(1))
+store.dispatch(wishListRemoveItem(2))
 
-store.dispatch({
-  type: WISHLIST_ADD_ITEM,
-  payload: { productId: 2, quantity: 3 },
-});
-store.dispatch({
-  type: WISHLIST_ADD_ITEM,
-  payload: { productId: 3, quantity: 5 },
-});
-store.dispatch({
-  type: WISHLIST_ADD_ITEM,
-  payload: { productId: 4, quantity: 6 },
-});
-
-store.dispatch({ type: WISHLIST_REMOVE_ITEM, payload: { productId: 1 } });
-store.dispatch({ type: WISHLIST_REMOVE_ITEM, payload: { productId: 2 } });
 
 // import { combineReducers, createStore } from "redux";
 // import cartReducer, {
