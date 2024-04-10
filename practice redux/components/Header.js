@@ -4,8 +4,7 @@ import CartIcon from "../assets/cart-icon.svg";
 import { useSelector } from "react-redux";
 
 export default function Header() {
-  const [cartItems] = useSelector((state) => state.cartItems)
-  console.log(cartItems.quantity)
+  const cartItems = useSelector((state) => state.cartItems)
   return (
     <header>
       <div className="header-contents">
